@@ -1183,6 +1183,9 @@ FIREFOX_TWITTER_ACCOUNTS = {
 FXA_IFRAME_SRC = config('FXA_IFRAME_SRC',
                         default='https://accounts.firefox.com/')
 
+FXA_ENDPOINT = config('FXA_ENDPOINT',
+                       default='https://accounts.firefox.com/')
+
 # Bug 1264843: embed FxA server in China within Fx China repack
 FXA_IFRAME_SRC_MOZILLAONLINE = config('FXA_IFRAME_SRC_MOZILLAONLINE',
                                       default='https://accounts.firefox.com.cn/')

@@ -260,7 +260,7 @@
     all values must validate against /^[\w\/.%-]+/
 #}
 {% macro fxa_email_form(entrypoint, class_name='fxa-email-form', id='fxa-email-form', label_text='Email address', submit_text='Submit', utm_params={}) -%}
-<form action="https://accounts.firefox.com/" id="{{ id }}" class="{{ class_name }}">
+<form action="{{ settings.FXA_ENDPOINT }}" id="{{ id }}" class="{{ class_name }}">
   <input type="hidden" name="action" value="email" />
   <input type="hidden" name="context" value="fx_desktop_v3" />
   <input type="hidden" name="service" value="sync" />
