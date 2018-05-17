@@ -8,12 +8,6 @@
 
 {% extends "firefox/firstrun/base-pebbles.html" %}
 
-{% block experiments %}
-  {% if switch('firstrun-copy-experiment', ['en-US']) %}
-    {% javascript 'experiment_firstrun_copy' %}
-  {% endif %}
-{% endblock %}
-
 {% block body_id %}firstrun-quantum-onboarding{% endblock %}
 
 {% block page_title %}

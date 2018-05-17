@@ -1329,6 +1329,7 @@ CSP_DEFAULT_SRC = (
     '*.mozilla.net',
     '*.mozilla.org',
     '*.mozilla.com',
+    FXA_ENDPOINT,
 )
 CSP_IMG_SRC = CSP_DEFAULT_SRC + (
     'data:',

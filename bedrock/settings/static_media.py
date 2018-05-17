@@ -1037,6 +1037,7 @@ PIPELINE_JS = {
     'firefox_firstrun_iframeless_fxa': {
         'source_filenames': (
             'js/base/uitour-lib.js',
+            'js/base/mozilla-fxa-form.js',
             'js/firefox/firstrun/firstrun_iframeless_fxa.js',
         ),
         'output_filename': 'js/firefox_firstrun_iframeless_fxa-bundle.js',

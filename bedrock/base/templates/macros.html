@@ -259,12 +259,15 @@
 
     all values must validate against /^[\w\/.%-]+/
 #}
-{% macro fxa_email_form(entrypoint, class_name='fxa-email-form', id='fxa-email-form', label_text='Email address', submit_text='Submit', utm_params={}) -%}
-<form action="{{ settings.FXA_ENDPOINT }}" id="{{ id }}" class="{{ class_name }}">
+{% macro fxa_email_form(entrypoint, class_name='fxa-email-form', label_text='Email address', submit_text='Submit', utm_params={}) -%}
+<form action="{{ settings.FXA_ENDPOINT }}" id="fxa-email-form" class="{{ class_name }}">
   <input type="hidden" name="action" value="email" />
   <input type="hidden" name="context" value="fx_desktop_v3" />
   <input type="hidden" name="service" value="sync" />
   <input type="hidden" name="entrypoint" value="{{ entrypoint }}" />
+  {# flow_id and flow_begin_time will be populated via JS on page load #}
+  <input type="hidden" name="flow_id" value="none" />
+  <input type="hidden" name="flow_begin_time" value="none" />
 
   {% for attr, val in utm_params.items() %}
     <input type="hidden" name="utm_{{ attr }}" value="{{ val }}" />
