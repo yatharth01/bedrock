@@ -2,7 +2,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-(function ($, Mozilla) {
+(function ($, Mozilla, Waypoint) {
     'use strict';
 
     var $fbVideochatBanner;
@@ -33,13 +33,19 @@
                 d.setTime(d.getTime() + (7 * 24 * 60 * 60 * 1000));
                 Mozilla.Cookies.setItem('fbvideochat-banner-dismiss', true, d.toUTCString(), '/');
 
-                $fbVideochatBanner.slideUp('fast');
+                $fbVideochatBanner.slideUp('fast', function() {
+                    // reset trigger point of sub nav
+                    Waypoint.refreshAll();
+                });
             });
 
             // slight delay before sliding down the banner
             setTimeout(function() {
-                $fbVideochatBanner.slideDown();
+                $fbVideochatBanner.slideDown(400, function() {
+                    // reset trigger point of sub nav
+                    Waypoint.refreshAll();
+                });
             }, 500);
         }
     }
-})(window.jQuery, window.Mozilla);
+})(window.jQuery, window.Mozilla, window.Waypoint);

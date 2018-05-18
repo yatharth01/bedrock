@@ -5,6 +5,7 @@
 @import '../pebbles/includes/lib';
 
 .fbvideochat-banner {
+    background: #f5f5f5; // fallback for old IE
     @include gradient-vertical($start-color: #fff, $end-color: #f5f5f5);
     display: none;
     text-align: center;
