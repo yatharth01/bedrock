@@ -15,7 +15,9 @@
 
     var hasCookies = typeof Mozilla.Cookies !== 'undefined' && Mozilla.Cookies.enabled();
 
-    if (hasCookies && window.site.platform === 'windows' && isFromFb && isIE) {
+    var testBanner = /test\-banner=true/.test(window.location.search);
+
+    if (testBanner || (hasCookies && window.site.platform === 'windows' && isFromFb && isIE)) {
         // make sure visitor hasn't previously dismissed the banner
         var wasDismissed = Mozilla.Cookies.getItem('fbvideochat-banner-dismiss');
 
