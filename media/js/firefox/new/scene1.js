@@ -2,7 +2,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-(function($) {
+(function($, dataLayer) {
     'use strict';
 
     var $html = $(document.documentElement);
@@ -126,13 +126,15 @@
      * https://github.com/mozilla/bedrock/issues/5629
      */
     // TODO: is this a solid enough check?
-    if (window.site.platform === 'ios' && /open\-app\-store=true/.test(window.location.search)) {
-        var appStoreURL = $('.os_ios a').attr('href');
+    //if (window.site.platform === 'ios' && /open\-app\-store=true/.test(window.location.search) && /adjust\.com/.test(document.referrer)) {
+    if (/open\-app\-store=true/.test(window.location.search) && /adjust\.com/.test(document.referrer)) {
+        // let's be specific, shall we?
+        var appStoreURL = $('.download-button .os_ios > a.download-link').attr('href');
 
         if (appStoreURL) {
-            // TODO: do we need a dataLayer call here?
-            window.location.href = appStoreURL;
+            console.log('make a datalayer call and redirect');
+            //window.location.href = appStoreURL;
         }
     }
 
-})(window.jQuery);
+})(window.jQuery, window.dataLayer || []);

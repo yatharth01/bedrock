@@ -6,6 +6,7 @@
     'use strict';
     window.site = {
         getPlatform: function (ua, pf) {
+            return 'ios';
             // Firefox OS navigator.platform is an empty string, which equates to a falsey value in JS
             // Ths means we must use an ugly ternary statement here to make testing easier.
             pf = (pf === '') ? '' : pf || navigator.platform;
