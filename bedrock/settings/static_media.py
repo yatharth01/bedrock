@@ -850,6 +850,23 @@ PIPELINE_JS = {
         ),
         'output_filename': 'js/common-bundle.js',
     },
+    'common-protocol': {
+        'source_filenames': (
+            'js/libs/jquery-3.2.1.min.js',
+            'js/base/mozilla-utils.js',
+            'js/base/mozilla-client.js',
+            'js/base/mozilla-image-helper.js',
+            'js/base/nav-main-resp.js',
+            'js/base/class-list-polyfill.js',
+            'js/base/mozilla-global-nav.js',
+            'js/base/base-page-init.js',
+            'js/base/core-datalayer.js',
+            'js/base/core-datalayer-init.js',
+            # primarily needed by stub attribution script (+ a couple others)
+            'js/base/search-params.js',
+        ),
+        'output_filename': 'js/common-protocol-bundle.js',
+    },
     'common-ie8': {
         'source_filenames': (
             'js/libs/jquery-1.11.3.min.js',
@@ -1194,18 +1211,13 @@ PIPELINE_JS = {
         ),
         'output_filename': 'js/firefox-update-notification-firstrun-whatsnew-bundle.js',
     },
-    'experiment-home': {
-        'source_filenames': (
-            'js/base/mozilla-traffic-cop.js',
-            'js/mozorg/home/experiment-home.js',
-        ),
-        'output_filename': 'js/experiment-home-bundle.js',
-    },
     'home': {
         'source_filenames': (
+            'protocol/js/protocol-modal.js',
+            'protocol/js/protocol-newsletter.js',
             'js/base/mozilla-lazy-load.js',
-            'js/base/mozilla-modal.js',
             'js/libs/jquery.waypoints.min.js',
+            'js/newsletter/form-protocol.js',
             'js/mozorg/home/home.js',
         ),
         'output_filename': 'js/home-bundle.js',
